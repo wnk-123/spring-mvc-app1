@@ -20,7 +20,8 @@ public class FirstController {
     }
 
     @GetMapping("/goodbye")
-    public String goodByePage() {
+    public String goodByePage(@RequestParam(value = "name", required = false) String name, Model model) {
+        model.addAttribute("message", "Goodbye " + name);
         return "first/goodbye";
     }
 
